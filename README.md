@@ -26,6 +26,20 @@ date || credit || debit || balance
 ```
 ### Approach
 
-Draw a Domain Model.
-Environment Set Up - Testing Framworks, File Structure, Gems Etc. 
+Draw a Domain Model. 
+Class Bank Account 
+  Balance
+  Statement
+  Print Statement
+ 
+Class Transaction
+  Deposit
+  Withdraw
+  
+Environment Set Up
+Bundle Init
+Add rspec to gemfile
+rspec --init
+Added Rubocop and SimpleCov to Gemfile
+- Testing Framworks, File Structure, Gems Etc. 
 TDD.
