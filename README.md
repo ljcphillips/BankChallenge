@@ -24,3 +24,8 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+### Approach
+
+Draw a Domain Model.
+Environment Set Up - Testing Framworks, File Structure, Gems Etc. 
+TDD.
