@@ -6,7 +6,9 @@ describe BankAccount do
     expect(subject.balance).to eql(0)
   end
 
-  it 'increase the balance by 100 when 100 is deposited'
+  it 'increase the balance by 100 when 100 is deposited' do
     subject.deposit(100)
     expect(subject.balance). to eql(100)
+  end
+    
 end
