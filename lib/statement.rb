@@ -1,7 +1,7 @@
 class Statement
 
   attr_accessor :records
-  
+
   def initialize
     @records = []
   end

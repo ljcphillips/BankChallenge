@@ -25,7 +25,7 @@ subject(:interface) { described_class.new }
       subject.deposit(2000)
       subject.withdraw(500)
       subject.print_statement
-    end. to output("date || credit || debit || balance\n21/05/2018 || 1000 ||  || 1000\n21/05/2018 || 2000 ||  || 3000\n21/05/2018 ||  || 500 || 2500\n").to_stdout
+    end. to output("date || credit || debit || balance\n" + Time.now.strftime("%d/%m/%Y")+ " || 1000 ||  || 1000\n"+ Time.now.strftime("%d/%m/%Y")+ " || 2000 ||  || 3000\n" + Time.now.strftime("%d/%m/%Y")+ " ||  || 500 || 2500\n").to_stdout
   end
 
 end
