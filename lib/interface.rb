@@ -1,23 +1,28 @@
-class CustomerInterface
+require 'bank_account.rb'
+require 'statement.rb'
 
-  def initialize(bank_account = new BankAccount, transactions = new Transactions, statement = new Statement)
+class Interface
+
+  attr_accessor :bank_account
+  attr_accessor :statement
+
+  def initialize(bank_account = BankAccount.new, statement = Statement.new)
     @bank_account = bank_account
-    @transactions = transactions
     @statement = statement
   end
 
   def deposit(amount)
-    @transactions.add(amount,@bank_account.balance)
+    @bank_account.add(amount)
     save(amount,nil,@bank_account.balance)
   end
 
   def withdraw(amount)
-    @transactions.subtract(amount,@bank_account.balance)
+    @bank_account.subtract(amount)
     save(nil,amount,@bank_account.balance)
   end
 
   def print_balance
-    puts @bank_account.balance
+    puts @bank_account.balance.to_s
   end
 
   def print_statement

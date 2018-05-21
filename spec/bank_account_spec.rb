@@ -12,12 +12,12 @@ describe BankAccount do
 
   it 'can add an amount to the balance' do
     subject.add(100)
-    expect(balance).to eql(100)
+    expect(subject.balance).to eql(100)
   end
 
   it 'can subtract an amount from the balance' do
     subject.subtract(100)
-    expect(balance).to eql(0)
+    expect(subject.balance).to eql(-100)
   end
 
 end
