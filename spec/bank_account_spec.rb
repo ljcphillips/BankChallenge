@@ -12,7 +12,6 @@ describe BankAccount do
     subject.transaction.deposit(2000)
     subject.transaction.withdraw(500)
     expect(subject.statement). to eql(["21/05/2018 || 1000 ||  || 1000", "21/05/2018 || 2000 ||  || 3000", "21/05/2018 ||  || 500 || 2500"])
-    binding.pry
   end
 
 end

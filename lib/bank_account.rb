@@ -1,17 +1,9 @@
 require_relative 'transaction.rb'
 class BankAccount
-  attr_accessor :transaction
-  attr_accessor :statement
+  attr_accessor :@balance
 
-  def initialize(transaction = Transaction.new)
-    @transaction = transaction
+  def initialize
+    @balance = 0
   end
-
-  def statement
-    @statement = @transaction.list.map{|x| x.values.join(" || ")}
-  end
-  def print_statement
-    puts "date || credit || debit || balance"
-    puts @statement
-  end
+  
 end
