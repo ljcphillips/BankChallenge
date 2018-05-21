@@ -17,7 +17,7 @@ describe BankAccount do
   end
 
   it 'prints a statement when asked' do
-    expect(subject.print_statement). to be "date || credit || debit || balance"
+    expect(subject.print_statement). to eql "date || credit || debit || balance"
   end
 
 end

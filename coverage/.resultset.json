@@ -4,7 +4,7 @@
       "/Users/lorrainephillips/Projects/BankChallenge/spec/bank_account_spec.rb": [
         1,
         1,
-        4,
+        5,
         null,
         1,
         1,
@@ -16,6 +16,10 @@
         null,
         null,
         1,
+        1,
+        1,
+        null,
+        null,
         1,
         1,
         null,
@@ -27,7 +31,11 @@
         1,
         null,
         1,
-        3,
+        4,
+        null,
+        null,
+        1,
+        1,
         null,
         null,
         1,
@@ -40,6 +48,6 @@
         null
       ]
     },
-    "timestamp": 1526899726
+    "timestamp": 1526900040
   }
 }
