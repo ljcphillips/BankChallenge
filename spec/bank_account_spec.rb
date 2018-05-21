@@ -20,4 +20,14 @@ describe BankAccount do
     expect(subject.print_statement). to eql "date || credit || debit || balance"
   end
 
+  it 'prints a statement with transactions' do
+    subject.deposit(1000)
+    subject.deposit(2000)
+    subject.withdraw(500)
+    expect(subject.print_statement). to eql "date || credit || debit || balance
+    21/05/2018 || || 500.00 || 2500.00
+    21/05/2018 || 2000.00 || || 3000.00
+    21/05/2018 || 1000.00 || || 1000.00"
+  end
+
 end
