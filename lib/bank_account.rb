@@ -1,22 +1,17 @@
+require_relative 'transaction.rb'
 class BankAccount
-  attr_reader :balance
+  attr_accessor :transaction
+  attr_accessor :statement
 
-  def initialize
-    @balance = 0
+  def initialize(transaction = Transaction.new)
+    @transaction = transaction
   end
 
-  def deposit(amount)
-    @balance += amount
+  def statement
+    @statement = @transaction.list.map{|x| x.values.join(" || ")}
   end
-
-  def withdraw(amount)
-    @balance -= amount
-  end
-
   def print_statement
-    puts "date || credit || debit || balance" + " " +
-    Time.now.strftime("%d/%m/%Y") + "||" + "||" + "500.00" + "||" + "2500.00" + " " +
-    Time.now.strftime("%d/%m/%Y") + "||" + "2000.00" + "||" + "3000.00" + " " + 
-    Time.now.strftime("%d/%m/%Y") + "||" + "1000.00" + "||" + "1000.00"
+    puts "date || credit || debit || balance"
+    puts @statement
   end
 end
