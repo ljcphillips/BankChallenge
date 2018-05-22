@@ -1,6 +1,6 @@
-require 'bank_account.rb'
-require 'statement.rb'
-require 'printer.rb'
+require_relative './bank_account.rb'
+require_relative './statement.rb'
+require_relative './printer.rb'
 
 class Interface
   include Printer
