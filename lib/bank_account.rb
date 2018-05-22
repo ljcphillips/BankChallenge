@@ -10,7 +10,11 @@ class BankAccount
   end
 
   def subtract(amount)
+    balance_error(amount)
     @balance -= amount
   end
 
+  def balance_error(amount)
+    raise 'Insufficient Balance!' if (@balance - amount) < -100
+  end
 end
