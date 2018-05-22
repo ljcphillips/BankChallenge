@@ -19,6 +19,6 @@ class BankAccount
   end
 
   def balance_error(amount)
-    raise 'Insufficient Balance!' if (amount) > (@balance + @overdraft)
+    raise 'Insufficient Balance!' if amount > (@balance + @overdraft)
   end
 end
