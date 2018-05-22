@@ -1,31 +1,44 @@
 require 'bank_account.rb'
 require 'statement.rb'
+require 'printer.rb'
 
 class Interface
-  attr_accessor :bank_account, :statement
+  include Printer
+  attr_accessor :bank_accounts, :statement, :selected_account
 
-  def initialize(bank_account = BankAccount.new, statement = Statement.new)
-    @bank_account = bank_account
-    @statement = statement
+  def initialize()
+    @bank_accounts = []
+    @selected_account = nil
+    @statement = nil
+  end
+
+  def new_account(args)
+    @bank_accounts << { "reference" => args[:reference],
+      "bank_account" => args.fetch(:bank_account, BankAccount.new),
+      "statement" => args.fetch(:statement, Statement.new)}
+  end
+
+  def select_account(reference)
+    @selected_account = @bank_accounts.select {|bank_account| bank_account["reference"] == reference }[0]["bank_account"]
+    @statement = @bank_accounts.select {|bank_account| bank_account["reference"] == reference }[0]["statement"]
   end
 
   def deposit(amount)
-    @bank_account.add(amount)
-    save(:credit=>amount, :balance=>@bank_account.balance)
+    @selected_account.add(amount)
+    save(:credit=>amount, :balance=>@selected_account.balance)
   end
 
   def withdraw(amount)
-    @bank_account.subtract(amount)
-    save(:debit=>amount, :balance=>@bank_account.balance)
+    @selected_account.subtract(amount)
+    save(:debit=>amount, :balance=>@selected_account.balance)
   end
 
   def print_balance
-    puts @bank_account.balance.to_s
+    print_figure(@selected_account.balance)
   end
 
   def print_statement
-    puts "date || credit || debit || balance"
-    puts print_friendly(@statement.records)
+    print_array(@statement.records)
   end
 
   private
@@ -34,7 +47,4 @@ class Interface
     @statement.save_transaction(args)
   end
 
-  def print_friendly(data)
-      data.map { |x| x.values.join(" || ") }
-  end
 end

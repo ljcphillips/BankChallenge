@@ -7,8 +7,7 @@ describe BankAccount do
   end
 
   it 'initializes with a bank balance of 0' do
-    bank_account1 = BankAccount.new
-    expect(bank_account1.balance).to eql(0)
+    expect(subject.balance).to eql(0)
   end
 
   it 'can add an amount to the balance' do
@@ -20,7 +19,6 @@ describe BankAccount do
   end
 
   it 'raises an error if balance will drop below -100' do
-    subject.balance = 0
     expect { subject.subtract(101) }.to raise_error('Insufficient Balance!')
   end
 end
