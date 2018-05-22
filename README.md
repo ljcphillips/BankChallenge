@@ -48,42 +48,27 @@ I added in a module for my Printing methods.
 
 ### Install and Run Code and Tests
 
-This is a command line app and you will need to run it in a REPL such as irb.
-
-If you don't already have it you will need bundler.
+This is a command line app and you will need to run it in a REPL such as irb. If you don't already have it you will need bundler.
 
 Clone or Fork this repo to your directory. 
 
-Navigate to your directory in your terminal(command line).
+**Step 1**  Using your terminal(command line). Navigate to the Bank Challenge Folder in your directory
+**Step 2** Run Bundle Install..
+**Step 3** To test enter 'rspec' into your terminal.
+**Step 4** To run code, open irb from the lib folder in the Bank Challenge Folder.
+**Step 5** Enter require './interface.rb' 
+**Step 6** To instantiate a new Interface - interface = Interface.new
+**Step 7** To Add a new Bank Account to the Interface and give it a reference number - interface.new_account(:reference => 1)
+**Step 8** To Select the Bank Account using its reference number- interface.select_account(1)
 
-Run Bundle Install.
-
-To test enter 'rspec' into your terminal.
-
-To run code, open irb from the lib folder in the Bank Challenge Folder.
-
-require './interface.rb'
-
-Instantiate a new Interface 
-
-interface = Interface.new
-
-Add a new Bank Account to the Interface and give it a reference number
-
-interface.new_account(:reference => 1)
-
-Select the Bank Account using its reference number
-
-interface.select_account(1)
-
-You can now:
+**You can now:**
 
   Deposit Money: interface.deposit(100)
   Withdraw Money: interface.withdraw(50)
   Print Balance: interface.print_balance
   Print Statement: interface.print_statement
 
-
+![alt text](screenshots/screenshot.png "Screenshot of Bank Account App")
 
 
 
