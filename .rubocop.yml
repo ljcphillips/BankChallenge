@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

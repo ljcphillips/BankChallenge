@@ -3,25 +3,19 @@ describe Interface do
   subject(:interface) { described_class.new }
 
   it 'increase the balance of an account by 100 when 100 is deposited' do
-    subject.new_account(:reference => 1)
+    subject.new_account(reference: 1)
     subject.select_account(1)
     expect { subject.deposit(100) }.to change { subject.selected_account.balance }.by(100)
   end
 
-  it 'redirects to bank_account' do
-    subject.new_account(:reference => 1)
-    subject.select_account(1)
-    expect(subject.deposit(100)).to redirect_to {assigns(:widget)}
-  end
-
   it 'decreases the balance by 100 when 100 is withdrawn' do
-    subject.new_account(:reference => 1)
+    subject.new_account(reference: 1)
     subject.select_account(1)
     expect { subject.withdraw(100) }.to change { subject.selected_account.balance }.by(-100)
   end
 
   it 'prints the current balance' do
-    subject.new_account(:reference => 1)
+    subject.new_account(reference: 1)
     subject.select_account(1)
     expect do
       subject.print_balance
@@ -30,7 +24,7 @@ describe Interface do
 
   it 'prints the current statement' do
     expect do
-      subject.new_account(:reference => 1)
+      subject.new_account(reference: 1)
       subject.select_account(1)
       subject.deposit(1000)
       subject.deposit(2000)

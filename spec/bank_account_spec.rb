@@ -27,5 +27,4 @@ describe BankAccount do
       expect { subject.subtract(100) }.to change { subject.balance }.by(-100)
     end
   end
-
 end
