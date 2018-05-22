@@ -1,8 +1,6 @@
 class Statement
   attr_accessor :records
 
-  # STATEMENT_HEADER = "date || credit || debit || balance".freeze
-
   def initialize
     @records = []
   end
