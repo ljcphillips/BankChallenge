@@ -18,7 +18,14 @@ describe BankAccount do
     expect { subject.subtract(100) }.to change { subject.balance }.by(-100)
   end
 
-  it 'raises an error if balance will drop below -100' do
-    expect { subject.subtract(101) }.to raise_error('Insufficient Balance!')
+  context 'when given an opening balance of 0 and an overdraft limit of 100' do
+    it 'raises an error if balance will drop below -100' do
+      expect { subject.subtract(101) }.to raise_error('Insufficient Balance!')
+    end
+
+    it 'does not raise an error if balance is -100' do
+      expect { subject.subtract(100) }.to change { subject.balance }.by(-100)
+    end
   end
+
 end

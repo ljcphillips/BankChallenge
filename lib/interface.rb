@@ -33,14 +33,6 @@ class Interface
     save(:debit=>amount, :balance=>@selected_account.balance)
   end
 
-  def print_balance
-    print_figure(@selected_account.balance)
-  end
-
-  def print_statement
-    print_array(@statement.records)
-  end
-
   private
 
   def save(args)

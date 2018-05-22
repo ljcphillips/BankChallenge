@@ -1,13 +1,14 @@
 module Printer
-  STATEMENT_HEADER = "date || credit || debit || balance"
 
-  def print_figure(figure)
-    puts figure.to_s
+
+  def print_balance(account = @selected_account)
+    puts account.balance.to_s
   end
 
-  def print_array(array)
-    puts STATEMENT_HEADER
-    puts print_friendly(array)
+  # assumes statement is in array format
+  def print_statement(header, statement = @statement.records )
+    puts header
+    puts print_friendly(statement)
   end
 
   private
