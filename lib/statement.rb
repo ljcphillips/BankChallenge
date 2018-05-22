@@ -6,7 +6,7 @@ class Statement
     @records = []
   end
 
-  def save_transaction(credit = nil, debit = nil, balance)
-    @records << {"date" => Time.now.strftime("%d/%m/%Y"), "credit" => credit, "debit" => debit, "balance" => balance}
+  def save_transaction(args)
+    @records << { "date" => Time.now.strftime("%d/%m/%Y"), "credit" => args[:credit], "debit" => args[:debit], "balance" => args[:balance] }
   end
 end

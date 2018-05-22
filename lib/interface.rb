@@ -2,9 +2,7 @@ require 'bank_account.rb'
 require 'statement.rb'
 
 class Interface
-
-  attr_accessor :bank_account
-  attr_accessor :statement
+  attr_accessor :bank_account, :statement
 
   def initialize(bank_account = BankAccount.new, statement = Statement.new)
     @bank_account = bank_account
@@ -13,12 +11,12 @@ class Interface
 
   def deposit(amount)
     @bank_account.add(amount)
-    save(amount,nil,@bank_account.balance)
+    save(:credit=>amount, :balance=>@bank_account.balance)
   end
 
   def withdraw(amount)
     @bank_account.subtract(amount)
-    save(nil,amount,@bank_account.balance)
+    save(:debit=>amount, :balance=>@bank_account.balance)
   end
 
   def print_balance
@@ -32,12 +30,11 @@ class Interface
 
   private
 
-  def save(credit, debit, balance)
-    @statement.save_transaction(credit, debit, balance)
+  def save(args)
+    @statement.save_transaction(args)
   end
 
   def print_friendly(data)
-      data.map{|x| x.values.join(" || ")}
+      data.map { |x| x.values.join(" || ") }
   end
-
 end
