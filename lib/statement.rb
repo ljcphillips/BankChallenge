@@ -1,11 +1,16 @@
 class Statement
-  attr_accessor :records
+  attr_accessor :statement
 
-  def initialize
-    @records = []
+  HEADER = %w[date credit debit balance].freeze
+  DELIMITER = ' || '.freeze
+
+  def initialize(transactions)
+    @statement = statement_formatting(transactions)
   end
 
-  def save_transaction(args)
-    @records << { "date" => Time.now.strftime("%d/%m/%Y"), "credit" => args[:credit], "debit" => args[:debit], "balance" => args[:balance] }
+  private
+
+  def statement_formatting(transactions)
+    transactions.map { |x| x.values.join(DELIMITER) }.unshift(HEADER.join(DELIMITER))
   end
 end
